@@ -1,0 +1,43 @@
+<div ng-init="vm.init()">
+  <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a class="btn-floating btn-large waves-effect waves-light blue accent-2 left btn" ng-click="vm.back()">
+                    <i class="material-icons">fast_rewind</i>
+                </a>
+                Ходит - МАФИЯ
+                <a class="btn-floating btn-large waves-effect waves-light blue accent-2 right btn">
+                    {{vm.gameFlag?'':'Start game'}}
+                </a>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="row full-height" style="text-align: center">
+
+        <div class="go-page">
+          <table class="responsive-table">
+                <thead>
+                <tr>
+                    <th data-field="id">Игроки</th>
+                    <th ng-repeat="gamer in vm.gamers" class="{{gamer.roleName!==undefined?'price':'name'}}" data-field="name">№<span ng-bind="$index+1"></span> <span ng-bind="gamer.name"></span> <span class="red-text" ng-bind="gamer.roleName.name"></span></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Ночь</td>
+                    <td ng-repeat="gamer in vm.gamers">{{'&nbsp;'}}</td>
+                </tr>
+                <tr>
+                    <td>День</td>
+                    <td ng-repeat="gamer in vm.gamers"><span ng-bind="{{gamer.days!==undefined?gamer.days:0}}"></span></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    </div>

@@ -1,0 +1,49 @@
+<div ng-init="vm.init()">
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a class="btn-floating btn-large waves-effect waves-light blue accent-2 left btn" ng-click="vm.goBack()">
+                <i class="material-icons">fast_rewind</i>
+            </a>
+            Выбор игроков
+            <a class="btn-floating btn-large waves-effect waves-light blue accent-2 right btn" ng-click="vm.submit()">
+                Готово
+            </a>
+        </div>
+    </nav>
+</div>
+
+
+<div class="row full-height" style="text-align: center">
+
+    <div class="choose-gamers">
+        <div class="panel-gamers">
+            <div class="cards clearfix">
+                <div class="one-card" ng-repeat="(index,gamer) in vm.choosenGamers()">
+                    <small>№<span ng-bind="index+1"></span> <span ng-bind="gamer.name"></span></small>
+                    <img class="responsive-img" src="{{gamer.image}}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list-players clearfix">
+        <div class="col s2" ng-repeat="(index,gamer) in vm.gamers">
+            <div class="card-image {{gamer.selected?'checked':''}}" ng-click="vm.chooseGamer(index)">
+                <img class="responsive-img" src="{{gamer.image}}">
+                <span class="card-title" ng-bind="gamer.name"></span>
+                <i class="material-icons">done</i>
+            </div>
+        </div>
+
+        <div class="col s2">
+            <div class="card-image checked">
+                <img class="responsive-img" src="images/logo.png">
+                <span class="card-title">Добавить игрока</span>
+                <i class="material-icons">add</i>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>

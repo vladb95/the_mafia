@@ -1,0 +1,240 @@
+body,
+html {
+  height: 100%;
+  min-height: 100%;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.navbar-fixed nav {
+  background-color: #313c45;
+  text-align: center;
+}
+.start-page {
+  text-align: center;
+}
+.start-page .buttons {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  margin-top: -32px;
+}
+.choose-variants {
+  padding-top: 25px;
+  width: 50%;
+  margin: 0 auto;
+}
+.choose-variants .go-button {
+  margin: 20px 0;
+}
+.list-players {
+  padding: 100px 0 100px;
+}
+.list-players .card-image {
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+  box-shadow: 0 5px 5px green;
+}
+.list-players .card-image:hover {
+  box-shadow: 0 5px 5px red;
+}
+.list-players .card-image .material-icons {
+  display: none;
+}
+.list-players .card-image.checked .material-icons {
+  display: block;
+  position: absolute;
+  color: #fff;
+  font-size: 130px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  vertical-align: middle;
+}
+.choose-gamers,
+.choose-roles {
+  width: 100%;
+  box-shadow: 3px 3px 13px #3d3d3d;
+  z-index: 4;
+  position: fixed;
+}
+.choose-gamers .panel-gamers,
+.choose-roles .panel-gamers,
+.choose-gamers .panel-roles,
+.choose-roles .panel-roles {
+  height: 90px;
+  width: 100%;
+  position: relative;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.choose-gamers .panel-gamers .cards,
+.choose-roles .panel-gamers .cards,
+.choose-gamers .panel-roles .cards,
+.choose-roles .panel-roles .cards {
+  height: 90px;
+  white-space: nowrap;
+}
+.choose-gamers .panel-gamers .one-card,
+.choose-roles .panel-gamers .one-card,
+.choose-gamers .panel-roles .one-card,
+.choose-roles .panel-roles .one-card {
+  display: inline-block;
+  width: 15%;
+  height: 100%;
+  background: red;
+  position: relative;
+}
+.choose-gamers .panel-gamers .one-card img,
+.choose-roles .panel-gamers .one-card img,
+.choose-gamers .panel-roles .one-card img,
+.choose-roles .panel-roles .one-card img {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.choose-gamers .panel-gamers .one-card small,
+.choose-roles .panel-gamers .one-card small,
+.choose-gamers .panel-roles .one-card small,
+.choose-roles .panel-roles .one-card small {
+  position: absolute;
+  right: 0;
+  font-size: 15px;
+  width: 100%;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  height: 100%;
+}
+.choose-roles .panel-roles {
+  height: 50px;
+  padding: 10px 0;
+}
+.choose-roles .panel-roles .chip {
+  cursor: pointer;
+}
+.list-roles i {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.list-roles i img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -35px;
+  margin-top: -35px;
+}
+.go-page table.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: block;
+  text-align: left;
+  position: relative;
+  /* sort out borders */
+}
+.go-page table.responsive-table td {
+  border: 1px solid #cecece;
+  text-align: center!important;
+  padding: 15px;
+  height: 60px;
+}
+.go-page table.responsive-table td .material-icons {
+  font-size: 18px;
+}
+.go-page table.responsive-table td.shoot-mafia {
+  background: #333;
+  color: #fff;
+}
+.go-page table.responsive-table th,
+.go-page table.responsive-table td {
+  margin: 0;
+  vertical-align: top;
+}
+.go-page table.responsive-table th {
+  text-align: left;
+  height: 60px;
+}
+.go-page table.responsive-table thead {
+  display: block;
+  float: left;
+}
+.go-page table.responsive-table thead tr {
+  display: block;
+  padding: 0 0 0 0;
+}
+.go-page table.responsive-table thead tr th::before {
+  content: "\00a0";
+}
+.go-page table.responsive-table tbody {
+  display: block;
+  width: auto;
+  position: relative;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.go-page table.responsive-table tbody tr {
+  display: inline-block;
+  vertical-align: top;
+}
+.go-page table.responsive-table th {
+  display: block;
+  text-align: left;
+  border: 1px solid #cecece;
+}
+.go-page table.responsive-table td {
+  display: block;
+  min-height: 1.25em;
+  text-align: left;
+}
+.go-page table.responsive-table tr {
+  padding: 0 0px;
+}
+.go-page table.responsive-table thead {
+  border: 0;
+  border-right: 1px solid #d0d0d0;
+}
+.go-page table.responsive-table.bordered th {
+  border-bottom: 0;
+  border-left: 0;
+}
+.go-page table.responsive-table.bordered td {
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+.go-page table.responsive-table.bordered tr {
+  border: 0;
+}
+.go-page table.responsive-table.bordered tbody tr {
+  border-right: 1px solid #d0d0d0;
+}
+.structure {
+  height: 100%;
+  min-height: 100%;
+  overflow-x: scroll;
+}
+.structure .full-height {
+  height: 100%;
+  min-height: 100%;
+}
+.footer {
+  bottom: 0;
+  color: #fff;
+  height: 40px;
+  position: fixed;
+  width: 100%;
+  background-color: #313c45;
+  text-align: center;
+}

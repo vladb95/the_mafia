@@ -1,0 +1,58 @@
+<div ng-init="vm.init()">
+<div class="navbar-fixed">
+  <nav>
+      <div class="nav-wrapper">
+          <a class="btn-floating btn-large waves-effect waves-light blue accent-2 left btn" ng-click="vm.back()">
+              <i class="material-icons">fast_rewind</i>
+          </a>
+          Создание игры
+      </div>
+  </nav>
+</div>
+<div class="row full-height" style="text-align: center">
+    <div class="choose-variants">
+        <div class="input-field col s12">
+            <select ng-model="vm.gameConfig.countGamers" ng-change="vm.chooseGamersCount()" material-select watch>
+                <option value="" disabled selected>Количество игроков</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+              <!--<option value="14">14</option>-->
+            </select>
+            <label>Выберите количество игроков</label>
+        </div>
+        <!--<div class="input-field col s12">
+            <select material-select watch>
+                <option value="" disabled selected>Выбор компании</option>
+                <option value="1">Компания Франса</option>
+            </select>
+            <label>Выбор компании</label>
+        </div>-->
+        <div class="chip" ng-show="vm.gameConfig.mafiaCount>0">
+            <img src="images/logo.png" alt="Contact Person">
+            <span ng-bind="vm.gameConfig.mafiaCount"></span> мафии
+        </div>
+        <div class="chip" ng-show="vm.gameConfig.maniaksCount>0">
+            <img src="images/maniak.png" alt="Contact Person">
+            <span ng-bind="vm.gameConfig.maniaksCount"></span> маньяк
+        </div>
+        <div class="chip" ng-show="vm.gameConfig.comissarsCount>0">
+            <img src="images/police.png" alt="Contact Person">
+            <span ng-bind="vm.gameConfig.comissarsCount"></span> комиссар
+        </div>
+        <div class="chip" ng-show="vm.gameConfig.doctorsCount>0">
+            <img src="images/doctor.png" alt="Contact Person">
+            <span ng-bind="vm.gameConfig.doctorsCount"></span> доктор
+        </div>
+        <div class="chip" ng-show="vm.gameConfig.driversCount>0">
+            <img src="images/bus.png" alt="Contact Person">
+            <span ng-bind="vm.gameConfig.driversCount"></span> Водитель автобуса
+        </div>
+        <div class="go-button">
+            <a class="waves-effect waves-light btn" ng-click="vm.createGame()">Создать игру</a>
+        </div>
+    </div>
+</div>
+</div>

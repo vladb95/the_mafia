@@ -1,0 +1,55 @@
+<div ng-init="vm.init()">
+<div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a class="btn-floating btn-large waves-effect waves-light blue accent-2 left btn" ng-click="vm.back()">
+                    <i class="material-icons">fast_rewind</i>
+                </a>
+                Распределение РОЛЕЙ <span ng-show="vm.currentRole>-1">- ХОД <span ng-bind="vm.roles[vm.currentRole].name"></span></span>
+                <a class="btn-floating btn-large waves-effect waves-light blue accent-2 right btn" ng-click="vm.startGame()">
+                    Готово
+                </a>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="row full-height" style="text-align: center">
+
+        <div class="choose-roles">
+            <div class="panel-roles">
+                <div class="cards clearfix">
+                  <div class="chip" ng-show="vm.roles[0].count>0" ng-click="vm.setCurrentRole(0)">
+                      <img src="images/logo.png" alt="Contact Person">
+                      <span ng-bind="vm.roles[0].count"></span> мафии
+                  </div>
+                  <div class="chip" ng-show="vm.roles[1].count>0" ng-click="vm.setCurrentRole(1)">
+                      <img src="images/maniak.png" alt="Contact Person">
+                      <span ng-bind="vm.roles[1].count"></span> маньяк
+                  </div>
+                  <div class="chip" ng-show="vm.roles[2].count>0" ng-click="vm.setCurrentRole(2)">
+                      <img src="images/police.png" alt="Contact Person">
+                      <span ng-bind="vm.roles[2].count"></span> комиссар
+                  </div>
+                  <div class="chip" ng-show="vm.roles[3].count>0" ng-click="vm.setCurrentRole(3)">
+                      <img src="images/doctor.png" alt="Contact Person">
+                      <span ng-bind="vm.roles[3].count"></span> доктор
+                  </div>
+                  <div class="chip" ng-show="vm.roles[4].count>0" ng-click="vm.setCurrentRole(4)">
+                      <img src="images/bus.png" alt="Contact Person">
+                      <span ng-bind="vm.roles[4].count"></span> Водитель автобуса
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-players list-roles clearfix">
+            <div class="col s2" ng-repeat="(index,gamer) in vm.choosenGamers" ng-click="vm.selectRole(index)">
+                <div class="card-image">
+                    <img class="responsive-img" src="{{gamer.image}}">
+                    <span class="card-title">№<span ng-bind="index + 1"></span> <span ng-bind="gamer.name"></span></span>
+                    <i ng-show="gamer.role!==undefined"><img src="images/{{vm.roles[gamer.role].logo}}.png" width="70px" alt=""/></i>
+                </div>
+            </div>
+      </div>
+</div>

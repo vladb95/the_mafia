@@ -28,7 +28,8 @@ var application=[
   'app/game/rolesController.js',
   'app/game/ingameController.js',
   'app/game/gameService.js',
-  'app/game/rolesService.js'
+  'app/game/rolesService.js',
+  'app/game/timerFilter.js'
 ];
 
 gulp.task('application',function(){

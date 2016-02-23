@@ -2,7 +2,7 @@ angular.module('gameModule').factory('rolesFactory',rolesFactory);
 
 rolesFactory.$inject=['gameFactory','gamersFactory'];
 function rolesFactory(gameFactory,gamersFactory){
-  /*private path*/
+  /*private part*/
   var _config=function(){
     return gameFactory.getGameConfig();
   };
@@ -11,23 +11,28 @@ function rolesFactory(gameFactory,gamersFactory){
           return [{
             logo:'logo',
             count:parseInt(localConfig.mafiaCount)?parseInt(localConfig.mafiaCount):0,
-            name:'Мафия'
+            name:'Мафия',
+            priority:1
           },{
             logo:'maniak',
             count:parseInt(localConfig.maniaksCount)?parseInt(localConfig.maniaksCount):0,
-            name:'Маньяк'
+            name:'Маньяк',
+            priority:2
           },{
             logo:'police',
             count:parseInt(localConfig.comissarsCount)?parseInt(localConfig.comissarsCount):0,
-            name:'Полиция'
+            name:'Коммисар',
+            priority:3
           },{
             logo:'doctor',
             count:parseInt(localConfig.doctorsCount)?parseInt(localConfig.doctorsCount):0,
-            name:'Доктор'
+            name:'Доктор',
+            priority:4
           },{
             logo:'bus',
             count:parseInt(localConfig.driversCount)?parseInt(localConfig.driversCount):0,
-            name:'Водитель автобуса'
+            name:'Водитель автобуса',
+            priority:5
           }];
   };
 
@@ -38,14 +43,42 @@ function rolesFactory(gameFactory,gamersFactory){
       return gamers;
     for(var i=0;i<gamers.length;i++){
       gamers[i].roleName=roles[gamers[i].role];
+      gamers[i].days=0;
+      gamers[i].treatments=0;
     }
     return gamers;
   };
 
-  /*public path*/
+  var _getRoleNameById=function(id){
+    var roles=_roles();
+    return roles[id-1].name;
+  };
+
+  var _rolesActions=function(){
+    return [{
+      roleId:1,
+      name:'kill',
+      action:'',
+    },{
+      roleId:2,
+      name:'kill',
+      action:'',
+    },{
+      roleId:3,
+      name:'kill',
+      action:''
+    },{
+      roleId:4,
+      name:'treatment',
+      action:''
+    }];
+  };
+
+  /*public part*/
   var rolesObject={
     getRoles:_roles,
     getGamers:_initGamers,
+    getRoleName:_getRoleNameById,
   };
   return rolesObject;
 }

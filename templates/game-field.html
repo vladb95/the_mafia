@@ -5,8 +5,8 @@
                 <a class="btn-floating btn-large waves-effect waves-light blue accent-2 left btn" ng-click="vm.back()">
                     <i class="material-icons">fast_rewind</i>
                 </a>
-                Ходит - МАФИЯ
-                <a class="btn-floating btn-large waves-effect waves-light blue accent-2 right btn">
+                Ходит  <span ng-show="vm.currentRoleActive!=undefined" ng-bind="vm.getCurrentPlayerGroupName()"></span>  <span ng-bind="vm.timeTick|timerFilter"></span>
+                <a class="btn-floating btn-large waves-effect waves-light blue accent-2 right btn" ng-click="vm.startGame()">
                     {{vm.gameFlag?'':'Start game'}}
                 </a>
             </div>
@@ -21,7 +21,7 @@
                 <thead>
                 <tr>
                     <th data-field="id">Игроки</th>
-                    <th ng-repeat="gamer in vm.gamers" class="{{gamer.roleName!==undefined?'price':'name'}}" data-field="name">№<span ng-bind="$index+1"></span> <span ng-bind="gamer.name"></span> <span class="red-text" ng-bind="gamer.roleName.name"></span></th>
+                    <th ng-repeat="gamer in vm.gamers" class="{{gamer.roleName.priority===vm.currentRoleActive?'green':''}}" data-field="{{gamer.roleName!==undefined?'price':'name'}}" data-field="name">№<span ng-bind="$index+1"></span> <span ng-bind="gamer.name"></span> <span class="red-text" ng-bind="gamer.roleName.name"></span></th>
 
                 </tr>
                 </thead>
@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <td>День</td>
-                    <td ng-repeat="gamer in vm.gamers"><span ng-bind="{{gamer.days!==undefined?gamer.days:0}}"></span></td>
+                    <td ng-repeat="gamer in vm.gamers"><span ng-bind="{{gamer.days}}"></span></td>
 
                 </tr>
                 </tbody>

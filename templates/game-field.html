@@ -28,7 +28,7 @@
                 <tbody>
                 <tr>
                     <td>Ночь</td>
-                    <td ng-repeat="gamer in vm.gamers">{{'&nbsp;'}}</td>
+                    <td ng-repeat="gamer in vm.gamers" ng-click="vm.roleAction($index)"><i class="material-icons">{{gamer.state==null?'&nbsp;':gamer.state}}</i></td>
                 </tr>
                 <tr>
                     <td>День</td>

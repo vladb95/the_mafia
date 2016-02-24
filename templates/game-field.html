@@ -15,29 +15,34 @@
 
 
     <div class="row full-height" style="text-align: center">
-
+      <div class="col s3">
         <div class="go-page">
           <table class="responsive-table">
                 <thead>
                 <tr>
                     <th data-field="id">Игроки</th>
-                    <th ng-repeat="gamer in vm.gamers" class="{{gamer.roleName.priority===vm.currentRoleActive?'green':''}}" data-field="{{gamer.roleName!==undefined?'price':'name'}}" data-field="name">№<span ng-bind="$index+1"></span> <span ng-bind="gamer.name"></span> <span class="red-text" ng-bind="gamer.roleName.name"></span></th>
+                    <th ng-repeat="gamer in vm.gamers track by $index" class="{{gamer.roleName.priority===vm.currentRoleActive&&!gamer.deadth?'green':''}}" data-field="{{gamer.roleName!==undefined?'price':'name'}}" data-field="name">№<span ng-bind="$index+1"></span> <span ng-bind="gamer.name"></span> <span class="red-text" ng-bind="gamer.roleName.name"></span></th>
 
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>Ночь</td>
-                    <td ng-repeat="gamer in vm.gamers" ng-click="vm.roleAction($index)"><i class="material-icons">{{gamer.state==null?'&nbsp;':gamer.state}}</i></td>
+                    <td ng-repeat="gamer in vm.gamers track by $index" ng-click="vm.roleAction($index)"><i class="material-icons">{{gamer.state==null?'&nbsp;':gamer.state.action}}</i></td>
                 </tr>
                 <tr>
                     <td>День</td>
-                    <td ng-repeat="gamer in vm.gamers"><span ng-bind="{{gamer.days}}"></span></td>
+                    <td ng-repeat="gamer in vm.gamers track by $index"><span ng-bind="{{gamer.days}}"></span></td>
 
                 </tr>
                 </tbody>
             </table>
         </div>
-
+      </div>
+        <div class="col s8">
+          <pre class="language-markup">
+            <p ng-repeat="note in vm.log track by $index"><snan ng-bind="note"></snan></p>
+          </pre>
+          </div>
     </div>
     </div>
